@@ -1,6 +1,6 @@
 /*
  * modweeb Custom Search - Logic
- * Version: 5.0.0
+ * Version: 6.0.0
  * Author: modweeb.com
  * License: Free to use and modify, provided this header remains intact.
  */
