@@ -1,121 +1,115 @@
 /*
  * modweeb Custom Search - Styles
- * Version: 2.0.0
+ * Version: 3.0.0
  * Author: modweeb.com
  * License: Free to use and modify, provided this header remains intact.
  */
-:root {
-  --linkC: #3b82f6;
-  --linkC-dark: #2563eb;
-  --contentB: #ffffff;
-  --contentBa: #f8fafc;
-  --notifB: #f1f5f9;
-  --notifC: #64748b;
-  --headerC: #1e293b;
-  --bodyC: #334155;
-  --contentL: #e2e8f0;
-  --radius: 20px;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --success: #10b981;
-  --warning: #f59e0b;
+ :root {
+    --linkC: #3b82f6;
+    --linkC-dark: #2563eb;
+    --contentB: #ffffff;
+    --contentBa: #f8fafc;
+    --notifB: #f1f5f9;
+    --notifC: #64748b;
+    --headerC: #1e293b;
+    --bodyC: #334155;
+    --contentL: #e2e8f0;
+    --radius: 20px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --success: #10b981;
+    --warning: #f59e0b;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--contentBa);
-  color: var(--headerC);
-  font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .search-container {
-  max-width: 600px;
-  width: 100%;
-  padding: 16px;
-  margin: 16px auto;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto;
 }
 
 .search-box {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--contentB, #fff);
-  border: 1px solid var(--contentL);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  height: 48px;
-  padding: 0 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--contentB, #fff);
+    border: 1px solid var(--contentL);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    height: 48px;
+    padding: 0 16px;
+    direction: rtl; /* لضمان أن كل العناصر تكون في الاتجاه الصحيح */
 }
 
 .search-input {
-  flex-grow: 1;
-  border: none;
-  background: transparent;
-  padding: 0;
-  font-size: 16px;
-  color: var(--bodyC);
-  outline: none;
-  height: 100%;
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: var(--bodyC);
+    outline: none;
+    height: 100%;
+    direction: rtl; /* لضمان أن النص يكتب من اليمين إلى اليسار */
 }
 
 .search-input::placeholder {
-  color: var(--notifC);
+    color: var(--notifC);
 }
 
 .search-icon, .search-clear {
-  color: var(--notifC);
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  cursor: pointer;
-  pointer-events: auto;
-  transition: color 0.2s ease;
-}
-
-.search-clear {
-  margin-right: 0;
-  margin-left: 8px;
-  display: none;
+    color: var(--notifC);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .search-icon:hover, .search-clear:hover {
-  color: var(--headerC);
+    color: var(--headerC);
 }
 
-.search-loading {
-  display: none;
-  text-align: center;
-  padding: 8px;
-  color: var(--notifC);
-  font-size: 12px;
-  margin-top: 8px;
+.search-icon {
+    left: 16px; /* موقع أيقونة البحث */
+}
+
+.search-clear {
+    right: 16px; /* موقع أيقونة الحذف */
+    display: none;
+    font-size: 18px; /* حجم أيقونة الحذف */
 }
 
 /* نتائج CSE: تصغير وتبسيط الستايل */
 .gcse-searchresults-only {
-  margin-top: 12px;
+    margin-top: 20px;
 }
 
 .gsc-wrapper {
-  font-size: 13px !important;
+    font-size: 13px !important;
 }
 
 .gsc-webResult .gs-title {
-  font-size: 14px !important;
-  color: var(--headerC) !important;
-  text-decoration: none !important;
+    font-size: 14px !important;
+    color: var(--headerC) !important;
+    text-decoration: none !important;
 }
 
 .gsc-webResult .gs-snippet {
-  color: var(--bodyC) !important;
-  font-size: 13px !important;
+    color: var(--bodyC) !important;
+    font-size: 13px !important;
 }
 
 .gsc-result {
-  padding: 8px 0 !important;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
 }
