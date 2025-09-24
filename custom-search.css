@@ -26,7 +26,7 @@
   
   .search-container {  
     max-width: 480px; width: 100%;  
-    background: var(--contentB);  
+    background: var(--contentB, #fff); /* إضافة المتغير هنا */
     border-radius: var(--radius);  
     box-shadow: var(--shadow);  
     padding: 20px; border: 1px solid var(--contentL);  
@@ -45,7 +45,8 @@
   .search-box { position:relative; margin-bottom:12px; }  
   .search-input {  
     width:100%; padding:8px 12px; font-size:14px; border:1px solid var(--contentL);  
-    border-radius:var(--radius); background:var(--contentB); padding-right:40px;  
+    border-radius:var(--radius); background:var(--contentB, #fff); /* إضافة المتغير هنا */
+    padding-right:40px;  
   }  
   .search-input:focus { outline:none; border-color:var(--linkC); box-shadow:0 0 0 3px rgba(59,130,246,0.15); }  
   
