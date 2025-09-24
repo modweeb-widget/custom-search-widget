@@ -1,0 +1,77 @@
+/*
+ * modweeb Custom Search - Styles
+ * Version: 1.0.0
+ * Author: modweeb.com
+ * License: Free to use and modify, provided this header remains intact.
+ */
+ :root {  
+    --linkC: #3b82f6;  
+    --linkC-dark: #2563eb;  
+    --contentB: #ffffff;  
+    --contentBa: #f8fafc;  
+    --notifB: #f1f5f9;  
+    --notifC: #64748b;  
+    --headerC: #1e293b;  
+    --bodyC: #334155;  
+    --contentL: #e2e8f0;  
+    --radius: 6px;  
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);  
+    --success: #10b981;  
+    --warning: #f59e0b;  
+  }  
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }  
+  
+  body { background-color: var(--contentBa); color: var(--headerC); font-family: system-ui, sans-serif; }  
+  
+  .search-container {  
+    max-width: 480px; width: 100%;  
+    background: var(--contentB);  
+    border-radius: var(--radius);  
+    box-shadow: var(--shadow);  
+    padding: 20px; border: 1px solid var(--contentL);  
+    margin: 16px auto;  
+  }  
+  
+  .search-header { text-align: center; margin-bottom: 12px; position: relative; }  
+  .badge { position: absolute; top: -8px; left: -8px; background: var(--linkC); color: #fff; font-size: 10px; padding: 4px 8px; border-radius: 12px; font-weight: 600; }  
+  .search-title { font-size: 18px; font-weight: 600; display:flex; align-items:center; justify-content:center; gap:8px; color:var(--headerC); }  
+  .search-description { font-size: 13px; color: var(--bodyC); margin-top:6px; }  
+  
+  .search-options { display:flex; gap:8px; margin:12px 0; flex-wrap:wrap; }  
+  .search-option { background:var(--contentBa); border:1px solid var(--contentL); border-radius:var(--radius); padding:4px 8px; font-size:12px; cursor:pointer; }  
+  .search-option.active { background:var(--linkC); color:#fff; border-color:var(--linkC); }  
+  
+  .search-box { position:relative; margin-bottom:12px; }  
+  .search-input {  
+    width:100%; padding:8px 12px; font-size:14px; border:1px solid var(--contentL);  
+    border-radius:var(--radius); background:var(--contentB); padding-right:40px;  
+  }  
+  .search-input:focus { outline:none; border-color:var(--linkC); box-shadow:0 0 0 3px rgba(59,130,246,0.15); }  
+  
+  .search-icon { position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--notifC); width:16px; height:16px; pointer-events:none; }  
+  
+  .search-button {  
+    width:100%; padding:8px 12px; background:var(--linkC); color:#fff; border:none; border-radius:var(--radius);  
+    font-size:14px; font-weight:500; cursor:pointer; display:flex; gap:8px; align-items:center; justify-content:center;  
+  }  
+  .search-button:hover { background:var(--linkC-dark); }  
+  
+  .search-features { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }  
+  .feature-item { display:flex; gap:6px; align-items:center; font-size:12px; color:var(--notifC); }  
+  .feature-icon { color:var(--success); font-size:14px; }  
+  
+  .search-loading { display:none; text-align:center; padding:8px; color:var(--notifC); font-size:12px; margin-top:8px; }  
+  .search-info { background:var(--notifB); border:1px solid var(--contentL); border-radius:var(--radius); padding:12px; font-size:12px; color:var(--notifC); margin-top:12px; position:relative; }  
+  
+  /* نتائج CSE: تصغير وتبسيط الستايل */  
+  .gcse-searchresults-only { margin-top:12px; }  
+  .gsc-wrapper { font-size: 13px !important; }  
+  .gsc-webResult .gs-title { font-size: 14px !important; color: var(--headerC) !important; text-decoration: none !important; }  
+  .gsc-webResult .gs-snippet { color: var(--bodyC) !important; font-size: 13px !important; }  
+  .gsc-result { padding: 8px 0 !important; border-bottom: 1px solid rgba(226,232,240,0.6) !important; }  
+  
+  @media (max-width:480px) {  
+    .search-container { padding:14px; }  
+    .search-features { grid-template-columns:1fr; }  
+  }
