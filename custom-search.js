@@ -13,24 +13,38 @@
       // بعد أن ينتهي CSE من الإنشاء نربط الزر والحقل بالتحكمات الداخلية  
       const attemptWire = function(attemptsLeft = 40) {  
         const gscInput = document.querySelector('input.gsc-input'); // input الذي أنشأته Google  
-        const gscBtn = document.querySelector('.gsc-search-button button, .gsc-search-button input[type="button"]'); // زر البحث الداخلي  
-        const resultsContainer = document.querySelector('#gcse-results-placeholder'); // حاوية النتائج المرئية  
         const customInput = document.querySelector('.search-input');  
-        const customButton = document.querySelector('.search-button');  
+        const searchContainer = document.querySelector('.search-container');
+        const searchBox = document.querySelector('.search-box');
         const loadingEl = document.querySelector('.search-loading');  
-        const options = document.querySelectorAll('.search-option');  
+        
+        // الأيقونات الجديدة
+        const voiceSearchIcon = document.querySelector('.voice-search-icon');
+        const imageSearchIcon = document.querySelector('.image-search-icon');
   
-        if (!customInput || !customButton) return; // لا شيء لربطه  
-  
-        // تفعيل تبديل الخيارات بصريًا (يمكن لاحقًا ربطها بفلاتر فعلية)  
-        options.forEach(opt => {  
-          opt.addEventListener('click', () => {  
-            options.forEach(o => o.classList.remove('active'));  
-            opt.classList.add('active');  
-            // يمكن هنا حفظ نطاق البحث في متغير لاستخدامه في الاستعلام (مثال: data-scope)  
-            // const scope = opt.getAttribute('data-scope');  
-          });  
-        });  
+        if (!customInput || !searchContainer) return; // لا شيء لربطه  
+
+        // إضافة تأثير التركيز (focus) لشريط البحث
+        customInput.addEventListener('focus', () => {
+            searchContainer.classList.add('focused');
+            searchBox.classList.add('focused');
+        });
+        customInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('focused');
+            searchBox.classList.remove('focused');
+        });
+
+        // وظائف وهمية لأيقونات الميكروفون والكاميرا
+        if (voiceSearchIcon) {
+            voiceSearchIcon.addEventListener('click', () => {
+                alert('وظيفة البحث الصوتي غير متاحة حاليًا.');
+            });
+        }
+        if (imageSearchIcon) {
+            imageSearchIcon.addEventListener('click', () => {
+                alert('وظيفة البحث بالصور غير متاحة حاليًا.');
+            });
+        }
   
         if (gscInput) {  
           // إذا وجدنا عنصر Google، اربطه بزرنا المخصص  
@@ -56,15 +70,9 @@
             }  
           };  
   
-          // زر الواجهة  
-          customButton.addEventListener('click', function(e){  
-            e.preventDefault();  
-            doSearch(customInput.value.trim());  
-          });  
-  
           // ضغط Enter في الحقل  
           customInput.addEventListener('keydown', function(e){  
-            if (e.key === 'Enter') { e.preventDefault(); customButton.click(); }  
+            if (e.key === 'Enter') { e.preventDefault(); doSearch(customInput.value.trim()); }  
           });  
   
           // مراقبة تغيُّر نتائج CSE لإخفاء التحميل  
@@ -72,7 +80,7 @@
           if (observerTarget) {  
             const mo = new MutationObserver((mutations) => {  
               // عند ظهور عناصر جديدة أو تغيُّر الشجرة، أخفِ مؤشر التحميل  
-              if (loadingEl) loadingEl.style.display = 'none';  
+              if (loadingEl) loadingel.style.display = 'none';  
             });  
             mo.observe(observerTarget, { childList: true, subtree: true });  
           }  
@@ -83,12 +91,15 @@
         } else {  
           // فشل العثور — سنستخدم إعادة توجيه كخارطة طريق بديلة  
           console.warn('لم يتم العثور على عناصر CSE الداخلية. سيتم فتح نتائج البحث على صفحة CSE كحل احتياطي.');  
-          const customButtonFail = document.querySelector('.search-button');  
-          if (customButtonFail) {  
-            customButtonFail.addEventListener('click', function() {  
-              const q = (document.querySelector('.search-input') || {}).value || '';  
-              if (!q) return;  
-              window.location.href = 'https://cse.google.com/cse?cx=' + CSE_CX + '&q=' + encodeURIComponent(q);  
+          const customInputFail = document.querySelector('.search-input'); // استخدام customInput بدلاً من customButtonFail
+          if (customInputFail) {  
+            customInputFail.addEventListener('keydown', function(e) { // الاستماع لـ Enter فقط
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                const q = customInputFail.value || '';  
+                if (!q) return;  
+                window.location.href = 'https://cse.google.com/cse?cx=' + CSE_CX + '&q=' + encodeURIComponent(q);  
+              }
             });  
           }  
         }  
