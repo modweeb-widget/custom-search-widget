@@ -1,262 +1,300 @@
-/*
- * modweeb Custom Search - Styles
- * Version: 6.0.0
- * Author: modweeb.com
- * License: Free to use and modify, provided this header remains intact.
- */
 :root {
-  --linkC: #3b82f6;
-  --linkC-dark: #2563eb;
-  --contentB: #ffffff;
-  --contentBa: #f8fafc;
-  --notifB: #f1f5f9;
-  --notifC: #64748b;
-  --headerC: #1e293b;
-  --bodyC: #334155;
-  --contentL: #e2e8f0;
-  --radius: 6px;
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --success: #10b981;
-  --warning: #f59e0b;
+    --linkC: #3b82f6;
+    --linkC-dark: #2563eb;
+    --contentB: #ffffff;
+    --contentBa: #f8fafc;
+    --notifB: #f1f5f9;
+    --notifC: #64748b;
+    --headerC: #1e293b;
+    --bodyC: #334155;
+    --contentL: #e2e8f0;
+    --radius: 6px;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --success: #10b981;
+    --warning: #f59e0b;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: var(--contentBa, #f8fafc);
-  color: var(--headerC, #1e293b);
-  font-family: system-ui, sans-serif;
+    background-color: var(--contentBa);
+    color: var(--headerC);
+    font-family: system-ui, sans-serif;
 }
 
 .search-container {
-  max-width: 480px;
-  width: 100%;
-  background: var(--contentB, #fff);
-  border-radius: var(--radius, 6px);
-  box-shadow: var(--shadow);
-  padding: 20px;
-  border: 1px solid var(--contentL, #e2e8f0);
-  margin: 16px auto;
+    max-width: 480px;
+    width: 100%;
+    background: var(--contentB);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    border: 1px solid var(--contentL);
+    margin: 16px auto;
+    direction: rtl; /* Added for correct text flow */
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 12px;
+    position: relative;
 }
 
 .search-description {
-  font-size: 13px;
-  color: var(--bodyC, #334155);
-  margin-top: 6px;
+    font-size: 13px;
+    color: var(--bodyC, #495057);
+    margin-top: 6px;
+}
+
+.search-options {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+}
+
+.search-option {
+    background: var(--contentBa, #f8f9fa);
+    border: 1px solid var(--contentL, #dee2e6);
+    border-radius: var(--radius, 8px);
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.search-option.active {
+    background: var(--linkC, #007bff);
+    color: #fff;
+    border-color: var(--linkC, #007bff);
 }
 
 .search-box {
-  position: relative;
-  margin-bottom: 12px;
-  background: var(--contentB, #fff);
-  display: flex; /* إضافة display: flex; هنا */
-  align-items: center; /* لمحاذاة العناصر عمودياً */
+    position: relative;
+    margin-bottom: 12px;
+    background: var(--contentB, #fff);
 }
 
 .search-input {
-  flex-grow: 1; /* لجعل الحقل يملأ المساحة المتبقية */
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid var(--linkC, #3b82f6);
-  border-radius: var(--radius, 6px);
-  background: var(--contentB, #fff);
-  padding-right: 40px; /* لإفساح مجال لأيقونة البحث */
-  box-sizing: border-box;
-  direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid var(--linkC, #007bff);
+    border-radius: var(--radius, 8px);
+    background: var(--contentB, #fff);
+    padding-right: 40px;
+    box-sizing: border-box;
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: var(--linkC, #3b82f6);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    outline: none;
+    border-color: var(--linkC, #007bff);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .search-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  fill: none;
-  color: var(--linkC, #3b82f6);
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: none;
+    color: var(--linkC, #007bff);
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .search-buttons {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
 }
 
 .search-button,
 .search-clear-button {
-  flex-grow: 1; /* لجعل الأزرار تأخذ نفس المساحة */
-  padding: 8px 12px;
-  color: #fff;
-  border-radius: var(--radius, 6px);
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  border: none;
+    flex-grow: 1;
+    padding: 8px 12px;
+    color: #fff;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
 
 .search-button {
-  background: var(--linkC, #3b82f6);
+    background: var(--linkC, #007bff);
 }
 
 .search-button:hover {
-  background: var(--linkC-dark, #2563eb);
+    background: var(--linkC-dark, #0056b3);
 }
 
 .search-clear-button {
-  background: var(--notifC, #64748b);
+    background: var(--notifC, #6c757d);
 }
 
 .search-clear-button:hover {
-  background: var(--linkC, #3b82f6);
+    background: var(--linkC, #007bff);
 }
 
-/* تنسيقات أيقونات SVG داخل الأزرار */
 .search-button svg,
 .search-clear-button svg {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-/* تخصيصات حاوية نتائج البحث */
+.search-loading {
+    display: none;
+    text-align: center;
+    padding: 8px;
+    color: var(--notifC, #6c757d);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.search-info {
+    background: var(--notifB, #f8f9fa);
+    border: 1px solid var(--contentL, #dee2e6);
+    border-radius: var(--radius, 8px);
+    padding: 12px;
+    font-size: 12px;
+    color: var(--notifC, #6c757d);
+    margin-top: 12px;
+    position: relative;
+}
+
 #gcse-results-placeholder {
-  margin-top: 20px;
-  min-height: 100px;
+    margin-top: 20px;
+    min-height: 100px;
 }
 
 .gsc-control-cse {
-  padding: 0 !important;
-  border: none !important;
-  background: transparent !important;
-  font-family: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    font-family: inherit !important;
 }
 
 .gsc-results-wrapper-overlay {
-  border: 1px solid var(--contentL, #e2e8f0) !important;
-  border-radius: var(--radius, 6px) !important;
-  box-shadow: var(--shadow, 0 2px 10px rgba(0, 0, 0, 0.1)) !important;
-  margin-top: 10px !important;
+    border: 1px solid var(--contentL, #dee2e6) !important;
+    border-radius: var(--radius, 8px) !important;
+    box-shadow: var(--shadow, 0 2px 10px rgba(0, 0, 0, 0.1)) !important;
+    margin-top: 10px !important;
 }
 
 .gsc-webResult.gsc-result {
-  padding: 16px !important;
-  border-bottom: 1px solid var(--contentL, #e2e8f0) !important;
+    padding: 16px !important;
+    border-bottom: 1px solid var(--contentL, #dee2e6) !important;
 }
 
 .gsc-webResult.gsc-result:hover {
-  background-color: var(--contentBa, #f8fafc) !important;
+    background-color: var(--contentBa, #f8f9fa) !important;
 }
 
 .gs-result .gs-title {
-  color: var(--linkC, #3b82f6) !important;
-  font-size: 16px !important;
-  text-decoration: none !important;
-  line-height: 1.4 !important;
+    color: var(--linkC, #007bff) !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    line-height: 1.4 !important;
 }
 
 .gs-result .gs-title:hover {
-  color: var(--linkC-dark, #2563eb) !important;
-  text-decoration: underline !important;
+    color: var(--linkC-dark, #0056b3) !important;
+    text-decoration: underline !important;
 }
 
 .gs-result .gs-snippet {
-  color: var(--bodyC, #334155) !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
-  margin-top: 8px !important;
+    color: var(--bodyC, #495057) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-top: 8px !important;
 }
 
 .gsc-url-top {
-  color: var(--notifC, #64748b) !important;
-  font-size: 12px !important;
-  margin-bottom: 4px !important;
+    color: var(--notifC, #6c757d) !important;
+    font-size: 12px !important;
+    margin-bottom: 4px !important;
 }
 
 .gsc-cursor-box {
-  text-align: center !important;
-  margin-top: 20px !important;
-  padding: 16px !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+    padding: 16px !important;
 }
 
 .gsc-cursor-page {
-  background: var(--contentBa, #f8fafc) !important;
-  border: 1px solid var(--contentL, #e2e8f0) !important;
-  color: var(--bodyC, #334155) !important;
-  padding: 8px 12px !important;
-  margin: 0 4px !important;
-  border-radius: 4px !important;
-  text-decoration: none !important;
+    background: var(--contentBa, #f8f9fa) !important;
+    border: 1px solid var(--contentL, #dee2e6) !important;
+    color: var(--bodyC, #495057) !important;
+    padding: 8px 12px !important;
+    margin: 0 4px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
 }
 
 .gsc-cursor-page:hover {
-  background: var(--linkC, #3b82f6) !important;
-  color: white !important;
-  border-color: var(--linkC, #3b82f6) !important;
+    background: var(--linkC, #007bff) !important;
+    color: white !important;
+    border-color: var(--linkC, #007bff) !important;
 }
 
 .gsc-cursor-current-page {
-  background: var(--linkC, #3b82f6) !important;
-  color: white !important;
-  border-color: var(--linkC, #3b82f6) !important;
+    background: var(--linkC, #007bff) !important;
+    color: white !important;
+    border-color: var(--linkC, #007bff) !important;
 }
 
-/* رسالة عدم وجود نتائج */
 .gsc-no-results-result {
-  text-align: center !important;
-  padding: 40px 20px !important;
-  color: var(--notifC, #64748b) !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
+    color: var(--notifC, #6c757d) !important;
 }
 
 .gsc-no-results-result .gs-snippet {
-  background: var(--notifB, #f1f5f9) !important;
-  border: 1px solid var(--contentL, #e2e8f0) !important;
-  border-radius: var(--radius, 6px) !important;
-  padding: 20px !important;
+    background: var(--notifB, #f8f9fa) !important;
+    border: 1px solid var(--contentL, #dee2e6) !important;
+    border-radius: var(--radius, 8px) !important;
+    padding: 20px !important;
 }
 
-/* شريط التقدم أثناء التحميل */
 .gsc-loading {
-  text-align: center !important;
-  padding: 20px !important;
-  color: var(--linkC, #3b82f6) !important;
+    text-align: center !important;
+    padding: 20px !important;
+    color: var(--linkC, #007bff) !important;
 }
 
-/* تحسينات للاستجابة */
 @media (max-width: 480px) {
-  .gsc-webResult.gsc-result {
-    padding: 12px !important;
-  }
-  .gs-result .gs-title {
-    font-size: 14px !important;
-  }
-  .gs-result .gs-snippet {
-    font-size: 13px !important;
-  }
-  .gsc-cursor-page {
-    padding: 6px 10px !important;
-    font-size: 12px !important;
-  }
+    .gsc-webResult.gsc-result {
+        padding: 12px !important;
+    }
+
+    .gs-result .gs-title {
+        font-size: 14px !important;
+    }
+
+    .gs-result .gs-snippet {
+        font-size: 13px !important;
+    }
+
+    .gsc-cursor-page {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
 }
