@@ -1,6 +1,6 @@
 /*
  * modweeb Custom Search - Styles
- * Version: 4.0.0
+ * Version: 5.0.0
  * Author: modweeb.com
  * License: Free to use and modify, provided this header remains intact.
  */
@@ -88,8 +88,8 @@ body {
 }
 
 .search-buttons {
-  display: flex;
-  gap: 8px;
+  display: flex; /* يجعل الأزرار أفقية */
+  gap: 8px; /* يضيف مسافة بين الأزرار */
   justify-content: center;
   margin-top: 12px;
 }
